@@ -1,7 +1,7 @@
 import React from 'react'
 import FooterUser from '../../../Components/UserHeaderFooter/FooterUser'
 import HeaderUser from '../../../Components/UserHeaderFooter/HeaderUser'
-import UserHome from '../../../Assets/Images/UserHome.jpg'
+import UserHome from '../../../Assets/Images/UserHome.webp'
 
 
 const UserDashBoardHome=()=>{

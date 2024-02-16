@@ -1,5 +1,5 @@
 import React from 'react'
-import login from '../../Assets/Images/login.png'
+import login from '../../Assets/Images/login.webp'
 import {useNavigate } from 'react-router-dom'
 import Header from '../../Components/HomeHeaderFooter/Header';
 import Footer from '../../Components/HomeHeaderFooter/Footer';

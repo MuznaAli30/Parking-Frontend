@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import FooterUser from '../../../Components/UserHeaderFooter/FooterUser'
 import HeaderUser from '../../../Components/UserHeaderFooter/HeaderUser'
-import area1 from '../../../Assets/Images/book.jpg'
-import area2 from '../../../Assets/Images/homeimg3.jpg'
-import area3 from '../../../Assets/Images/avlb.jpg'
+import area1 from '../../../Assets/Images/book.webp'
+import area2 from '../../../Assets/Images/homeimg3.webp'
+import area3 from '../../../Assets/Images/avlb.webp'
 
 const BookSpaceUser=()=>{
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import HeaderUser from '../../../Components/UserHeaderFooter/HeaderUser'
 import FooterUser from '../../../Components/UserHeaderFooter/FooterUser'
-import ParkingSlotNum from '../../../Assets/Images/parkingSlotNum.png'
+import ParkingSlotNum from '../../../Assets/Images/parkingSlotNum.webp'
 import { Link } from 'react-router-dom'
 
 const BookSlotsNumber=()=>{

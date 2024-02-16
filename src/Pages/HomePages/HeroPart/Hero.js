@@ -1,8 +1,8 @@
 // color
 import React from 'react'
 import Content from '../Content/Content';
-import homeImage from '../../../Assets/Images/homeimg3.jpg'
-import about from '../../../Assets/Images/about.jpg'
+import homeImage from '../../../Assets/Images/homeimg3.webp'
+import about from '../../../Assets/Images/about.webp'
 import {useNavigate } from 'react-router-dom';
 import Header from '../../../Components/HomeHeaderFooter/Header';
 import Footer from '../../../Components/HomeHeaderFooter/Footer';

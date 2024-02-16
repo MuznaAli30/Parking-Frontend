@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '../../../Components/HomeHeaderFooter/Footer'
 import Header from '../../../Components/HomeHeaderFooter/Header'
-import feedback from '../../../Assets/Images/feedback.jpg'
+import feedback from '../../../Assets/Images/feedback.webp'
 import { Link,useNavigate} from 'react-router-dom'
 import { LoginRegistrationBtns } from '../../../Utilis/Buttons/LoginRegistrationBtns/LoginRegistrationBtns'
 

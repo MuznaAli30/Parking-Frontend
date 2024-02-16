@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderUser from '../../../Components/UserHeaderFooter/HeaderUser';
 import FooterUser from '../../../Components/UserHeaderFooter/FooterUser';
 import { Link, useNavigate } from 'react-router-dom';
-import bookSlots from '../../../Assets/Images/avlb.jpg'
+import bookSlots from '../../../Assets/Images/avlb.webp'
 import { LoginRegistrationBtns } from '../../../Utilis/Buttons/LoginRegistrationBtns/LoginRegistrationBtns';
 
 const BookSlotTimings = () => {

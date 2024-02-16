@@ -1,5 +1,5 @@
 import React from 'react';
-import homeImage from '../../../Assets/Images/contactImg.jpg'
+import homeImage from '../../../Assets/Images/contactImg.webp'
 import { useNavigate } from 'react-router-dom';
 import Header from '../../../Components/HomeHeaderFooter/Header';
 import Footer from '../../../Components/HomeHeaderFooter/Footer';

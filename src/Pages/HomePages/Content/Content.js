@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate} from 'react-router-dom';
-import book from '../../../Assets/Images/book.jpg'
-import manage from '../../../Assets/Images/manage.jpg'
-import available from '../../../Assets/Images/avlb.jpg'
-import emailNoti from '../../../Assets/Images/emailNotification.jpg'
+import book from '../../../Assets/Images/book.webp'
+import manage from '../../../Assets/Images/manage.webp'
+import available from '../../../Assets/Images/avlb.webp'
+import emailNoti from '../../../Assets/Images/emailNotification.webp'
 import { Homebtns } from '../../../Utilis/Buttons/HomePagebtns/Homebtns';
 
 
