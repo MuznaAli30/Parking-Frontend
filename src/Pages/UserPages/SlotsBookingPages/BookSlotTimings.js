@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HeaderUser from '../../../Components/UserHeaderFooter/HeaderUser';
 import FooterUser from '../../../Components/UserHeaderFooter/FooterUser';
 import { Link, useNavigate } from 'react-router-dom';
@@ -37,7 +37,7 @@ for(let d = 1; d <= 4; d++){
       <section>
         <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
           <div className="lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-            <img className='rounded-2xl' src= {bookSlots}/>
+            <img className='rounded-2xl' src= {bookSlots} alt='err'/>
             <div className="absolute inset-0 flex items-center justify-center">
             </div>
           </div>

@@ -21,7 +21,7 @@ const UserDashBoardHome=()=>{
           </div>
           <div class="flex flex-col sm:flex-row mt-5 items-center text-center justify-center w-full">
         <div class=" text-center sm:pr-8 sm:py-8">
-        <img className='mb-10' src={UserHome} />
+        <img className='mb-10' src={UserHome} aria-label='err'/>
         <div>
         <p class="leading-relaxed text-2xl mb-4">With our Real Time Parking Booking System, you can easily book available parking spaces, cancel reservations if plans change, and share feedback to help us improve your experience. Your dashboard is designed to provide hassle-free parking experiences, offering convenience and control at your fingertips. Thank you for choosing our system; we're committed to delivering exceptional service and enhancing your parking journey.</p>
         </div>

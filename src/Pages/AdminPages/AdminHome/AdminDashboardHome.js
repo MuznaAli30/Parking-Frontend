@@ -20,7 +20,7 @@ const AdminDashboardHome=()=>{
           </div>
           <div class="flex flex-col sm:flex-row mt-5 items-center text-center justify-center w-full">
         <div class=" text-center sm:pr-8 sm:py-8">
-        <img className='mb-10' src={adminHome} />
+        <img className='mb-10' src={adminHome} alt='err' />
         <div>
         <p class="leading-relaxed text-2xl mb-4">With our Real-Time Parking Booking System, managing bookings, user interactions, and feedback is streamlined. You can effortlessly handle booking cancellations, review user profiles, and respond to feedback to improve the parking experience. Our intuitive dashboard empowers admins with seamless control and insightful analytics. we're dedicated to facilitating exceptional parking services and refining our platform based on your insights.</p>
         </div>

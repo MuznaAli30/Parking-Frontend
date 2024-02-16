@@ -6,10 +6,10 @@ const Footer = () => {
     <div>
       <footer className="text-gray-300 body-font bg-purple-700">
         <div className="container mx-auto flex items-center justify-between px-5 py-5">
-          <a className="flex title-font font-medium items-center text-purple-400">
+          <h className="flex title-font font-medium items-center text-purple-400">
             <i className="fa-solid fa-square-parking text-white text-2xl"></i>
             <span className="ml-3 text-xl text-white">Parking</span>
-          </a>
+          </h>
           <p className="text-xl text-white max-sm:hidden">© 2024 Real Time Parking</p>
           <div className="inline-flex space-x-4 text-xl text-gray-300">
             <a className="text-white" href="https://www.facebook.com">

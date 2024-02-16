@@ -1,6 +1,6 @@
 import React from 'react'
 import login from '../../Assets/Images/login.png'
-import { Link, useNavigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 import Header from '../../Components/HomeHeaderFooter/Header';
 import Footer from '../../Components/HomeHeaderFooter/Footer';
 import toast, { Toaster } from 'react-hot-toast';
@@ -48,7 +48,7 @@ const Login = ()=> {
       <section>
         <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
           <div className="lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 p-10 max-sm:p-0 flex items-end justify-start relative">
-            <img className='rounded-2xl' src= {login}/>
+            <img className='rounded-2xl' src= {login} alt='err'/>
             <div className="absolute inset-0 flex items-center justify-center">
             </div>
           </div>

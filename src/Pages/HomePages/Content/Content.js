@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import book from '../../../Assets/Images/book.jpg'
 import manage from '../../../Assets/Images/manage.jpg'
 import available from '../../../Assets/Images/avlb.jpg'
@@ -31,7 +31,7 @@ const Content = () => {
             <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
               <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Book Your Space</h2>
               <p className="mb-10 leading-relaxed text-base">Reserve your parking spot online for your desired date and time. Say goodbye to the stress of finding parking when you arrive.</p>
-              <img src={book} alt=""/>
+              <img src={book} alt="err"/>
             </div>
             <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
               <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Manage Bookings</h2>
@@ -41,16 +41,16 @@ const Content = () => {
             <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
               <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Real-Time Availability Check</h2>
               <p className="leading-relaxed text-base mb-4">Check the real-time availability of parking spaces before making a reservation. Get live updates on available spots to ensure a smooth parking experience.</p>
-              <img src={available} alt=""/>
+              <img src={available} alt="err"/>
             </div>
             <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
               <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Email Confirmation and Notifications</h2>
               <p className="leading-relaxed text-base mb-4">Receive email confirmations for successful parking bookings. Get timely notifications for upcoming reservations.</p>
-              <img src={emailNoti} alt="" />
+              <img src={emailNoti} alt="err" />
             </div>
           </div>
           <div className='flex justify-center'>
-          {/* <Link to='/register' className="flex mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Register Now</Link> */}
+            
         <Homebtns label={"Register Now"} onClick={navigateToRegistrationPage}/>
 
           </div>
