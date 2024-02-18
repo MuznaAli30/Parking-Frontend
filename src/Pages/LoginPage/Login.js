@@ -15,11 +15,11 @@ const Login = ()=> {
 
   const handleLogin = (e) =>{
     e.preventDefault();
-    if(email === "muzna@gmail.com" && password === "muz123"){
+    if(email === "user@gmail.com" && password === "123"){
       console.log("login")
       navigate('/userDashboardHome')
     }
-    else if (email === "admin@gmail.com" && password === "ad123"){
+    else if (email === "admin@gmail.com" && password === "123"){
       console.log("login")
       navigate('/adminDashboardHome')
     }
