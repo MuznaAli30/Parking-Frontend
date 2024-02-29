@@ -24,7 +24,7 @@ const Hero=()=>{
       <Header/>
       <section class="bg-purple-100">
   <div class="container mx-auto flex flex-col items-center justify-center">
-    <img className="w-full h-[80vh] py-12 mb-10  rounded-xl max-sm:h-[50vh]" alt="hero" src={homeImage}/>
+    <img className="w-full h-[80vh] py-12 mb-10 rounded-xl max-sm:h-[50vh] " alt="hero" src={homeImage}/>
     <div class="text-center lg:w-2/3 w-[100%]">
       <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium underline-offset-2 text-black">Welcome to Real-time Parking Booking System</h1>
       <p class="mb-8 leading-relaxed text-xl">The smart real-time parking booking system aims to streamline the parking reservation process, saving users time and reducing the stress associated with finding parking in congested areas. By providing a user-friendly interface and real-time information, the system enhances the efficiency and convenience of parking management for both users and parking operators.</p>

@@ -1,9 +1,14 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
 import HeaderAdmin from '../../../Components/AdminHeaderOnly/HeaderAdmin'
 import FooterUser from '../../../Components/UserHeaderFooter/FooterUser'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
+import { Api } from '../../../Api/Api'
 
 const ViewUser=()=>{
+  const [data, setData] = useState([]);
+
 
     const users = [
         {User : "user1", Information: "email@gmail.com, contact"},
@@ -11,6 +16,23 @@ const ViewUser=()=>{
         {User : "user1", Information: "email@gmail.com, contact"}
 
     ]
+
+    useEffect(() => {
+      const fetchAllUsers = async () => {
+        try {
+          const userName = await axios.get(`${Api}/Register/getUsers`);
+          console.log("url is correct")
+          setData(userName.data);
+          console.log(userName.data);
+          console.log("fetched")
+        } catch (error) {
+          console.log("not fetching : ", error);
+          
+        }
+      };
+      fetchAllUsers();
+    },[])
+    
 
   return (
     <div>
@@ -33,13 +55,14 @@ const ViewUser=()=>{
               </tr>
             </thead>
             <tbody className="bg-[#8683e6] divide-y divide-gray-500 rounded-2xl shadow-2xl">
-              {users.map((user, index) => (
+              {data.map((userName, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 border max-sm:p-1 text-xl text-white border-black  max-sm:text-sm text-center">
-                    {user.User}
+                    {userName.Name}
                   </td>
                   <td className="px-6 py-4 border max-sm:p-1 text-xl text-white border-black  max-sm:text-sm text-center">
-                    {user.Information}
+                    <p>Email : {userName.Email}</p>
+                    <p>Contact : {userName.Contact}</p>
                     </td>
                 </tr>
               ))}

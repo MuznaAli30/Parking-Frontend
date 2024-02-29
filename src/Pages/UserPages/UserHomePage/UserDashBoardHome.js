@@ -1,10 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import FooterUser from '../../../Components/UserHeaderFooter/FooterUser'
 import HeaderUser from '../../../Components/UserHeaderFooter/HeaderUser'
 import UserHome from '../../../Assets/Images/UserHome.webp'
+import axios from 'axios';
+import { Api } from '../../../Api/Api';
+import { useParams } from 'react-router-dom';
 
 
 const UserDashBoardHome=()=>{
+
+  const [data, setData] = useState([]);
+  const params = useParams();
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      try {
+        const userName = await axios.get(`${Api}/Register/registerid/${params.id}`);
+        console.log("url is correct")
+        setData(userName.data);
+        console.log(userName.data);
+        console.log("fetched")
+      } catch (error) {
+        console.log("not fetching : ", error);
+        
+      }
+    };
+    fetchUserName();
+  },[])
+
   return (
     <div className='bg-purple-100'>
       <HeaderUser/>
@@ -14,7 +37,9 @@ const UserDashBoardHome=()=>{
       <div class="rounded-lg h-94 overflow-hidden">
       <div>
         <div className="flex flex-col items-center text-center justify-center">
-            <h2 class="font-medium title-font mt-4 text-black text-3xl">User Name</h2>
+            <div class="font-medium title-font mt-4 text-black text-3xl">
+            {data && <h2>{data.Name}</h2>}
+            </div>
             <div class="w-24 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
             <p class="leading-relaxed text-2xl mb-4">Welcome to your personalized parking space dashboard!</p>
         </div>

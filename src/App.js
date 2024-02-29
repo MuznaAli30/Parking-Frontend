@@ -26,7 +26,7 @@ function App() {
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/Login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
-      <Route path="/userDashboardHome" element={<UserDashBoardHome/>}/>
+      <Route path="/userDashboardHome/:id" element={<UserDashBoardHome/>}/>
       <Route path="/bookSpaceUser" element={<BookSpaceUser/>}/>
       <Route path="/bookSlotTimings" element={<BookSlotTimings/>}/>
       <Route path='/bookSlotsNumber' element={<BookSlotsNumber/>}/>
