@@ -8,6 +8,7 @@ import toast, {Toaster} from 'react-hot-toast'
 
 const BookSlotsNumber=()=>{
 
+  // eslint-disable-next-line no-unused-expressions
   const [selected, setSelected] = useState();
 
   const slots = [
