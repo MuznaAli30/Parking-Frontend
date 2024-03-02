@@ -9,14 +9,6 @@ import { Api } from '../../../Api/Api'
 const ViewUser=()=>{
   const [data, setData] = useState([]);
 
-
-    const users = [
-        {User : "user1", Information: "email@gmail.com, contact"},
-        {User : "user1", Information: "email@gmail.com, contact"},
-        {User : "user1", Information: "email@gmail.com, contact"}
-
-    ]
-
     useEffect(() => {
       const fetchAllUsers = async () => {
         try {
