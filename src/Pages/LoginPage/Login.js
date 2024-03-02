@@ -23,7 +23,7 @@ const Login = ()=> {
 
         if(userLogin.status === 200) {
           const {result} = userLogin.data;
-          // eslint-disable-next-line no-unused-expressions
+          /* eslint-disable-next-line no-unused-vars */
           const {Email: userEmail } = userLogin.data;
 
           console.log(result.Email);
