@@ -28,7 +28,7 @@ const Register=()=>{
       if(newRegistration.status === 201){
         toast.success("Registered sucessfully");
         // eslint-disable-next-line no-unused-expressions
-        setName(''), setEmail(''), setPassword(''), setContact(''); //after registration set field empty
+        {setName(''), setEmail(''), setPassword(''), setContact(''); }//after registration set field empty
       }
       else{
         toast.error("Try again")
