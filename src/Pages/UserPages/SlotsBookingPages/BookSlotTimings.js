@@ -67,10 +67,6 @@ const BookSlotTimings = () => {
 
             <input className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' name="timeValue" type="time" placeholder="hours" value={formData.timeValue}
               onChange={handleChange}>
-              {/* {timings.map((timing, index) => (
-              <option key={index} value={timing.Time}> {timing.Time}</option>
-              ))} */}
-
             </input>
 
             <label className='font-bold text-xl'>Duration</label>
