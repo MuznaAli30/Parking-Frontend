@@ -20,16 +20,6 @@ const BookSlotTimings = () => {
 
   }
 
-  // const timings = [];
-
-  // for (let hour = 1; hour <= 12; hour++) {
-  //   timings.push({ Time: `${hour} Am` });
-  // }
-
-  // for (let hour = 1; hour <= 12; hour++) {
-  //   timings.push({ Time: `${hour} Pm` });
-  // }
-
   const durations = []
   for (let d = 1; d <= 4; d++) {
     durations.push({ Duration: `${d} Hours` })
