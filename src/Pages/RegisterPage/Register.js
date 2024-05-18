@@ -27,10 +27,12 @@ const Register=()=>{
       
       if(newRegistration.status === 201){
         toast.success("Registered sucessfully");
-        setName(''), setEmail(''), setPassword(''), setContact(''); //after registration set field empty
+
+        // eslint-disable-next-line no-unused-expressions
+        {setName(''), setEmail(''), setPassword(''), setContact('');} //after registration set field empty
       }
-      else{
-        toast.error("Try again")
+      else if(newRegistration.status === 400){
+        toast.error("user already exist")
       }
     } catch (error) {
       console.log(error);

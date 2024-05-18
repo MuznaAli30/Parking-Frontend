@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HeaderAdmin from '../../../Components/AdminHeaderOnly/HeaderAdmin'
 import FooterUser from '../../../Components/UserHeaderFooter/FooterUser'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { TablesBtns } from '../../../Utilis/Buttons/TablesBtns/TablesBtns';
+import axios from 'axios';
+import { Api } from '../../../Api/Api';
+import toast, {Toaster} from "react-hot-toast";
+
 
 
 const CancelBookingAdmin=()=>{
+
+  const [bookings, setBookings] = useState([]);
+  const params = useParams();
 
   const handleCancleBookingAdmin = (e) => {
     console.log("Booking Cancled by Admin")
@@ -13,12 +20,31 @@ const CancelBookingAdmin=()=>{
   }
 
 
-    const cancleBooking = [
-        {User : "user1", Information: "2 hours, 9 PM "},
-        {User : "user1", Information: "3 hours, 5 PM "},
-        {User : "user1", Information: "4 hours, 10 am"}
+  useEffect(() => {
+    const fetchBookings = async () => {
+      try {
+        const response = await axios.get(`${Api}/BookSlotSpace/bookSpaceGet`);
+        setBookings(response.data);
+      } catch (error) {
+        console.error('Error fetching bookings:', error);
+      }
+    };
 
-    ]
+    fetchBookings();
+  }, []);
+
+    const dltUser = async (id) => {
+      try {
+        const response = await axios.delete(`${Api}/BookSlotSpace/dltUserBooking/${id}`);
+
+        setBooking((prevData) => prevData.filter((booking) => booking.id !== id))
+        toast.success("Deleted Successfully")
+      } catch (error) {
+        console.error('err:',error)        
+      }
+    } 
+
+
   return (
     <div className='bg-purple-100'>
       <HeaderAdmin/>
@@ -42,17 +68,20 @@ const CancelBookingAdmin=()=>{
               </tr>
             </thead>
             <tbody className="bg-[#8683e6] divide-y divide-gray-500 rounded-2xl shadow-2xl">
-              {cancleBooking.map((cancel, index) => (
+              {bookings.map((booking, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 border max-sm:p-1 text-xl text-white border-black  max-sm:text-sm text-center">
-                    {cancel.User}
+                    {booking.userID.Name}
                   </td>
                   <td className="px-6 py-4 border max-sm:p-1 text-xl text-white border-black  max-sm:text-sm text-center">
-                    {cancel.Information}
+                    <p>Area:  {booking.image}</p>
+                    <p>Timing:  {JSON.stringify(booking.timing)}</p>
+                    <p>Slot Number:  {booking.slotNumber}</p>
+
+
                     </td>
                   <td className="border border-gray-500 text-center">
-                  <TablesBtns  label={"Cancle"} onClick={handleCancleBookingAdmin}/>
-
+                  <TablesBtns  label={"Cancel"} onClick={() => dltUser(booking._id)}/>
                   </td>
                 </tr>
               ))}
@@ -61,7 +90,9 @@ const CancelBookingAdmin=()=>{
         </div>
       </div>
       <FooterUser/>
+      <Toaster/>
     </div>
   )
 }
 export default CancelBookingAdmin
+

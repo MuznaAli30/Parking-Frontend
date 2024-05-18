@@ -1,16 +1,31 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { Headersbtns } from '../../Utilis/Buttons/HeadersButtons/Headersbtns';
+import Cookies from 'js-cookie';
+import { useEffect } from 'react';
 
 const HeaderAdmin=()=>{
 
   const navigate = useNavigate()
 
   const navigateToLogOutPage = (e) => {
-    e.preventDefault()
-    console.log("LogOutPage")
-    navigate('/')
-  }
+    e.preventDefault();
+    // removing cookies
+    Cookies.remove('Email');
+    Cookies.remove('Password');
+    // after removing navigate to login page
+    navigate('/Login');
+  };
+  // a variable that will be true if cookies is equal to admin@gmail.com means if user is admin otherwise it will be false
+  const isUserAdmin = Cookies.get('Email') === 'admin@gmail.com';
+
+  useEffect(() => {
+    // if user is not admin "isUserAdmin === false" its navigate to login page
+    if (!isUserAdmin) {
+      navigate('/Login');
+    }
+    // dependency array, navigation depneds on isUserAdmin value
+  }, [isUserAdmin, navigate]);
 
   return (
     <div>
@@ -23,7 +38,7 @@ const HeaderAdmin=()=>{
           <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4  flex flex-wrap items-center text-xl justify-center">
             <Link to="/cancleBookingAdmin" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 max-sm:text-xl"><i class="fa-solid fa-clipboard-check"></i> Cancel Bookings </Link>
             <Link to="/viewUser" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 font-medium max-sm:text-xl"><i class="fa-solid fa-users"></i> View Users</Link>
-            <Link to="/replyReviews" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 font-medium max-sm:text-xl"><i class="fa-solid fa-reply"></i> Reply Reviews</Link>
+            {/* <Link to="/replyReviews" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 font-medium max-sm:text-xl"><i class="fa-solid fa-reply"></i> Reply Reviews</Link> */}
           </nav>
           <div className='space-x-3'>
             

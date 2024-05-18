@@ -1,9 +1,10 @@
 import React from 'react'
 import HeaderAdmin from '../../../Components/AdminHeaderOnly/HeaderAdmin'
 import FooterUser from '../../../Components/UserHeaderFooter/FooterUser'
-import adminHome from '../../../Assets/Images/adminHome.webp'
+import adminHome from '../../../Assets/Images/adminHome.webp';
 
 const AdminDashboardHome=()=>{
+
   return (
     <div className='bg-purple-100' >
       <HeaderAdmin/>

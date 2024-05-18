@@ -1,34 +1,42 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import HeaderUser from '../../../Components/UserHeaderFooter/HeaderUser';
 import FooterUser from '../../../Components/UserHeaderFooter/FooterUser';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import bookSlots from '../../../Assets/Images/avlb.webp'
 import { LoginRegistrationBtns } from '../../../Utilis/Buttons/LoginRegistrationBtns/LoginRegistrationBtns';
-import toast, {Toaster} from 'react-hot-toast'
+import toast, {Toaster} from 'react-hot-toast';
+import { DataContext } from '../../../ReactContext/Context';
 
 const BookSlotTimings = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const params = useParams();
 
-  const handleBookSot = (e) => {
+
+  const { newTimings } = useContext(DataContext);
+
+  const [formData, setFormData] = useState({
+    date: '',
+    time: '',
+    duration: '',
+  });
+
+
+
+  const handleBookSotTimings = (e) => {
     e.preventDefault()
     console.log("Slot booked")
+    newTimings(formData);
     toast.success("Timings Booked")
     
     setTimeout(() => {
-      navigate('/bookSlotsNumber');
+      navigate(`/bookSlotsNumber/${params.id}`);
   }, 3000);
+  };
 
-  } 
-
-// const timings = [];
-
-// for (let hour = 1; hour <= 12; hour++) {
-//   timings.push({ Time: `${hour} Am` });
-// }
-
-// for (let hour = 1; hour <= 12; hour++) {
-//   timings.push({ Time: `${hour} Pm` });
-// }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
 const durations =[]
 for(let d = 1; d <= 4; d++){
@@ -47,24 +55,21 @@ for(let d = 1; d <= 4; d++){
             <div className="absolute inset-0 flex items-center justify-center">
             </div>
           </div>
-          <form className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-            <h2  className="text-gray-900 text-3xl font-medium title-font mt-24 mb-10"><Link to='/bookSpaceUser'><i class="fa-solid fa-circle-left text-3xl hover:scale-125"></i></Link> Book Slot Timing</h2>
-            <label className='font-bold text-xl'>Date</label><input className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' type="date" placeholder="date" />
+          <form className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0" on onSubmit={handleBookSotTimings}>
+            <h2  className="text-gray-900 text-3xl font-medium title-font mt-24 mb-10"><Link to={`/bookSpaceUser/${params.id}`}><i class="fa-solid fa-circle-left text-3xl hover:scale-125"></i></Link> Book Slot Timing</h2>
+            <label className='font-bold text-xl'>Date</label><input className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' type="date" placeholder="date" name='date' value={formData.date} onChange={handleChange}/>
             <label className='font-bold text-xl'>Timings</label>
             
-            <input className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' type="time" placeholder="hours">
-              {/* {timings.map((timing, index) => (
-              <option key={index} value={timing.Time}> {timing.Time}</option>
-              ))} */}
+            <input className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' type="time" placeholder="hours" name='time'value={formData.time} onChange={handleChange}>
             </input>
           <label className='font-bold text-xl'>Duration</label>
-          <select className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' type="hour" placeholder="Duration">
+          <select className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' type="hour" placeholder="Duration" name='duration' value={formData.duration} onChange={handleChange}>
             {durations.map((duration, index) => (
               <option key={index} value={duration.Duration} > {duration.Duration} </option>
             ))}
           </select>
 
-            <LoginRegistrationBtns  label={"Book Slot"}  icon={"fa-solid fa-circle-check"} onClick={handleBookSot}/>
+          <LoginRegistrationBtns  label={"Book Slot"}  icon={"fa-solid fa-circle-check"} onClick={handleBookSotTimings}/>
           
           </form>
         </div>

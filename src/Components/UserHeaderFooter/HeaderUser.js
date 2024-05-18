@@ -2,17 +2,21 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { Headersbtns } from '../../Utilis/Buttons/HeadersButtons/Headersbtns';
+import { useParams } from 'react-router-dom';
+
 
 
 const HeaderUser=()=>{
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const params = useParams();
 
   const navigateToLogOutPage = (e) => {
-    e.preventDefault()
-    console.log("LogOutPage")
-    navigate('/')
-  }
+    e.preventDefault();
+    // navigate to login page
+    navigate('/Login')
+  };
+
   return (
     <div>
       <header className="text-gray-300 body-font bg-purple-700 ">
@@ -22,8 +26,9 @@ const HeaderUser=()=>{
             <span className="ml-3 text-xl text-white max-sm:text-xl md:text-3xl">Parking Booking System</span>
           </h>
           <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4  flex flex-wrap items-center text-xl justify-center">
-            <Link to="/bookSpaceUser" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 max-sm:text-xl"><i class="fa-solid fa-clipboard-check"></i> Book Space </Link>
-            <Link to="/cancelBooking" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 font-medium max-sm:text-xl"><i class="fa-solid fa-check"></i> Bookings</Link>
+            <Link to={`/bookSpaceUser/${params.id}`} className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 max-sm:text-xl"><i class="fa-solid fa-clipboard-check"></i> Book Space </Link>
+            <Link to={`/cancelBooking/${params.id}`} className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 font-medium max-sm:text-xl"><i class="fa-solid fa-check"></i> Bookings</Link>
+            
           </nav>
           <div className='space-x-3'>
             

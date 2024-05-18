@@ -29,8 +29,8 @@ const Header = () => {
             <span className="ml-3 text-xl text-white max-sm:text-xl md:text-3xl">Parking Booking System</span>
           </h>
           <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700 flex flex-wrap items-center text-xl justify-center">
-            <Link to="/contact" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 max-sm:text-xl"><i class="fa-solid fa-address-book"></i> Contact</Link>
-            <Link to="/feedBackPage" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 font-medium max-sm:text-xl"><i class="fa-sharp fa-solid fa-comments"></i> Feedback</Link>
+            {/* <Link to="/contact" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 max-sm:text-xl"><i class="fa-solid fa-address-book"></i> Contact</Link> */}
+            {/* <Link to="/feedBackPage" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 font-medium max-sm:text-xl"><i class="fa-sharp fa-solid fa-comments"></i> Feedback</Link> */}
             <Link to="/viewFeedbackReviews" className="mr-5 text-white cursor-pointer hover:text-gray-400 max-sm:mt-3 max-sm:mb-3 font-medium max-sm:text-xl"><i class="fa-solid fa-users-viewfinder"></i> Reviews</Link>
           </nav>
           <div className='space-x-3'>

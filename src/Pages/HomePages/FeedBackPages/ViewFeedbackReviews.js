@@ -1,70 +1,92 @@
-import React from 'react'
-import Header from '../../../Components/HomeHeaderFooter/Header'
-import Footer from '../../../Components/HomeHeaderFooter/Footer'
-import FeedBackReview from '../../../Assets/Images/review.webp'
-import {  useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import Header from '../../../Components/HomeHeaderFooter/Header';
+import Footer from '../../../Components/HomeHeaderFooter/Footer';
 import { LoginRegistrationBtns } from '../../../Utilis/Buttons/LoginRegistrationBtns/LoginRegistrationBtns'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { Api } from '../../../Api/Api';
+import toast, { Toaster } from 'react-hot-toast'
 
-const ViewFeedbackReviews=()=>{
 
-  const navigate = useNavigate()
-
+const ViewFeedbackReviews = () => {
+  const navigate = useNavigate();
+  const [feedback, setFeedback] = useState([]);
+  const [Message, setMessage] = useState();
 
   const navigateToHomePage = (e) => {
-    e.preventDefault()
-    console.log("Homepage")
-    navigate('/')
-  }
+    e.preventDefault();
+    console.log("Homepage");
+    navigate('/');
+  };
 
-  const reviews = [
-    {Name: 'abc1', msg: 'good', },
-    {Name: 'abc2', msg: 'bad', },
-    {Name: 'abc3', msg: 'good', }
-  ];
+  const handleSendFeedback = async (e) => {
+    e.preventDefault();
+    try {
+      const newFeedBack = await axios.post(`${Api}/feedback/addFeedBack`, { Name, Email, Message });
+  
+      if (newFeedBack.status === 201) {
+        toast.success("Feedback sent successfully");
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else if (newFeedBack.status === 400) {
+        toast.error("You have already submitted feedback");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong while sending feedback");
+    }
+  };
+  
+
+  useEffect(() => {
+    const fetchUserFeedback = async () => {
+      try {
+        const userFeedback = await axios.get(`${Api}/feedback/getFeedback`);
+        console.log("url is correct");
+        setFeedback(userFeedback.data);
+        console.log(userFeedback.data);
+        console.log("fetched");
+      } catch (error) {
+        console.log("fetching error ", error);
+      }
+    };
+    fetchUserFeedback();
+  }, []);
 
   return (
     <div>
-      <Header/>
-      <section className="bg-purple-100">
-        <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
-          <div className="lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 p-10 max-sm:p-0 flex items-end justify-start relative">
-            <img className='rounded-2xl lg:flex-col max-sm:w-full' src= {FeedBackReview} alt='err'/>
-            <div className="absolute inset-0 flex items-center justify-center">
+      <Header />
+      <section className="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
+        <div className="max-w-2xl mx-auto px-4">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion ({feedback.length})</h2>
+          </div>
+          <form className="mb-6 " onSubmit={handleSendFeedback}>
+            <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+              <label htmlFor="comment" className="sr-only">Your comment</label>
+              <textarea id="comment" rows="6"
+                className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                placeholder="Write a comment..." required value={Message} onChange={(e) => setMessage(e.target.value)} ></textarea>
             </div>
-          </div>
-          <div className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
-          <h2  className="text-gray-900 text-3xl font-medium title-font mt-24 mb-10"> Reviews Of Our Website</h2>
-          <table className="min-w-full divide-y divide-gray-200 mt-16 mb-16">
-            <thead className="bg-purple-600 text-white shadow-2xl">
-              <tr>
-                <th className="px-6 py-3 max-sm:p-1  text-3xl font-semibold uppercase tracking-wider border border-black max-md:text-sm max-sm:text-sm ">
-                Name
-                </th>
-                <th className="px-6 py-3 max-sm:p-1  text-3xl font-semibold uppercase tracking-wider border border-black max-md:text-sm max-sm:text-sm">
-                  Review
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-[#8683e6] divide-y divide-gray-500 rounded-2xl shadow-2xl">
-              {reviews.map((review, index) => (
-                <tr key={index}>
-                  <td className="px-6 py-4 border max-sm:p-1 text-xl text-white border-black  max-sm:text-sm text-center">
-                    {review.Name}
-                  </td>
-                  <td className="px-6 py-4 border max-sm:p-1 text-xl text-white border-black  max-sm:text-sm text-center">
-                    {review.msg}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <LoginRegistrationBtns  label={"Home"}  icon={"fa-solid fa-house"} onClick={navigateToHomePage}/>
+            <LoginRegistrationBtns  label={"Send"}  icon={"fa-solid fa-paper-plane-top"} type={'submit'}  onClick={handleSendFeedback}/>
 
-          </div>
+          </form>
+          {feedback.map((comment, index) => (
+            <div key={index} className="mb-8">
+              <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
+                {comment.Name}
+              </p>
+              <p className="text-gray-500 dark:text-gray-400">{comment.Message}</p>
+            </div>
+          ))}
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </div>
-  )
-}
-export default ViewFeedbackReviews
+  );
+};
+
+export default ViewFeedbackReviews;
+
+

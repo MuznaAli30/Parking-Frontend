@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { LoginRegistrationBtns } from '../../Utilis/Buttons/LoginRegistrationBtns/LoginRegistrationBtns';
 import axios from 'axios';
 import { Api } from '../../Api/Api';
+import Cookies from 'js-cookie';
 
 const Login = ()=> {
 
@@ -15,31 +16,38 @@ const Login = ()=> {
   const [Password, setPassword] = useState('')
   const navigate = useNavigate()
 
-  const handleLogin = async (e) =>{
+  const handleLogin = async (e) => {
     e.preventDefault();
     
     try {
-      const userLogin = await axios.post(`${Api}/Register/loginUsers`, {Email, Password});
+      const userLogin = await axios.post(`${Api}/Register/loginUsers`, { Email, Password });
+  
+      if (userLogin.status === 200) {
+        const { result, role } = userLogin.data;
+        console.log(result); 
+        console.log(Email);
+        console.log(role);
+  
+        if (role === 'admin') {
+          Cookies.set('Email', Email);
+          Cookies.set('Password', Password)
+          navigate('/adminDashboardHome');
 
-        if(userLogin.status === 200) {
-          const {result} = userLogin.data;
-          const {Email: userEmail } = userLogin.data;
 
-          console.log(result.Email);
+        } else if (result && result.Email) {
 
-          if(result && result.Email === Email ){
-            //redirect to user's dashboard
-            navigate(`/userDashboardHome/${result._id}`);
-            toast.success("Logged in")
-            console.log("navigated")
-          }
+          navigate(`/userDashboardHome/${result._id}`);
+          toast.success("Logged in");
+        } else {
+          toast.error("Invalid response from the server");
+        }
       }
     } catch (error) {
       console.log(error);
-      toast.error("something went wrong")
+      toast.error("Something went wrong");
     }
   }
-
+  
   const navigateToRegistrationPage = (e) => {
     e.preventDefault()
     console.log("registerPage")
