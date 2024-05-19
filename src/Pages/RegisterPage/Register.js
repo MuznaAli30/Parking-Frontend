@@ -34,6 +34,15 @@ const Register=()=>{
       else if(newRegistration.status === 400){
         toast.error("user already exist")
       }
+      else if(newRegistration.status === 204){
+        toast.error("All fileds are required and Contact number must be of 11 digits")
+      }
+      // else if(newRegistration.status === 422){
+      //   toast.error("Password must be of 6 digits")
+      // }
+      // else if(newRegistration.status === 403){
+      //   toast.error("Invalid Contact Number")
+      // }
     } catch (error) {
       console.log(error);
       toast.error("something went wrong")
@@ -53,7 +62,7 @@ const Register=()=>{
   }
 
   return (
-    <div className='bg-purple-100'>
+    <div className='bg-black'>
       <Header/>
       <section>
         <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
@@ -63,15 +72,15 @@ const Register=()=>{
             </div>
           </div>
           <form className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0" onSubmit={handleRegistration}>
-            <h2  className="text-gray-900 text-3xl mb-1 font-medium title-font mt-24"><i class="fa-solid fa-address-card"></i>  Registeration</h2>
-            <p className="leading-relaxed mb-5 text-gray-600">Register Yourself here!</p>
-            <input className="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Name" type="text" value={Name} onChange={(e) => setName(e.target.value)}/>
-            <input className="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Email" type="email" value={Email} onChange={(e) => setEmail(e.target.value)}/>
-            <input className="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Password" type="password" value={Password} onChange={(e) => setPassword(e.target.value)} />
-            <input className="bg-white rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4" placeholder="Contact" type="contact" value={Contact} onChange={(e) => setContact(e.target.value)} />
+            <h2  className="text-[#d46e08] text-3xl mb-1 font-medium title-font mt-24"><i class="fa-solid fa-address-card"></i>  Registeration</h2>
+            <p className="leading-relaxed mb-5 text-white">Register Yourself here!</p>
+            <input className="bg-white rounded border border-gray-400 focus:outline-none text-base px-4 py-2 mb-4" placeholder="Name" type="text" value={Name} onChange={(e) => setName(e.target.value)}/>
+            <input className="bg-white rounded border border-gray-400 focus:outline-none text-base px-4 py-2 mb-4" placeholder="Email" type="email" value={Email} onChange={(e) => setEmail(e.target.value)}/>
+            <input className="bg-white rounded border border-gray-400 focus:outline-none text-base px-4 py-2 mb-4" placeholder="Password" type="password" value={Password} onChange={(e) => setPassword(e.target.value)} />
+            <input className="bg-white rounded border border-gray-400 focus:outline-none text-base px-4 py-2 mb-4" placeholder="Contact" type="contact" value={Contact} onChange={(e) => setContact(e.target.value)} />
             <LoginRegistrationBtns  label={"Register"}  icon={"fa-solid fa-address-card"} type={'submit'} onClick={handleRegistration}/>
 
-            <p className="leading-relaxed mt-5 text-gray-600">Now Login!</p>
+            <p className="leading-relaxed mt-5 text-white">Now Login!</p>
 
             <LoginRegistrationBtns  label={"Login"} icon={"fa-solid fa-right-to-bracket"} onClick={navigateToLoginPage} />
             <LoginRegistrationBtns  label={"Home"}  icon={"fa-solid fa-house"} onClick={navigateToHomePage} />

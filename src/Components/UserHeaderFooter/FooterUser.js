@@ -4,7 +4,7 @@ import React from 'react'
 export default function FooterUser() {
   return (
     <div>
-      <footer className="text-gray-300 body-font bg-purple-700">
+      <footer className="text-gray-300 body-font bg-[#d46e08]">
         <div className="container mx-auto flex items-center justify-between px-5 py-2">
           <h className="flex title-font font-medium items-center text-purple-400">
             <i className="fa-solid fa-square-parking text-white text-2xl"></i>

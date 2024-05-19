@@ -27,25 +27,25 @@ const BookSpaceUser=()=>{
   
 
   return (
-    <div className='bg-purple-100'>
+    <div className='bg-black'>
         <HeaderUser/>
         <div className="flex flex-col items-center text-center justify-center">
-        <h2 class="font-bold title-font text-black text-3xl mt-10"><Link to={`/userDashboardHome/${params.id}`}><i class="fa-solid fa-circle-left text-3xl hover:scale-125"></i></Link>  Select Your Parking Area</h2>
+        <h2 class="font-bold title-font text-[#d46e08] text-3xl mt-10"><Link to={`/userDashboardHome/${params.id}`}><i class=" text-[#d46e08] fa-solid fa-circle-left text-3xl hover:scale-125"></i></Link>  Select Your Parking Area</h2>
         </div>
   <div className="flex flex-wrap justify-center mt-16 mb-72 mx-auto">
-  <div className="xl:w-1/3 lg:w-1/2 md:w-full px-4 py-6 border-l-2 border-gray-200 border-opacity-60">
-    <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">First Area</h2>
+  <div className="xl:w-1/3 lg:w-1/2 md:w-full px-4 py-6 ">
+    <h2 className="text-lg sm:text-xl text-[#d46e08] font-medium title-font mb-5">First Area</h2>
     
     <SpaceBookingbtns src={area1} onClick={()=>navigateToBookingSlotTimings("area1")} />
   </div>
-  <div className="xl:w-1/3 lg:w-1/2 md:w-full px-4 py-6 border-l-2 border-gray-200 border-opacity-60">
-    <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Second Area</h2>
+  <div className="xl:w-1/3 lg:w-1/2 md:w-full px-4 py-6 ">
+    <h2 className="text-lg sm:text-xl text-[#d46e08] font-medium title-font mb-5">Second Area</h2>
 
     <SpaceBookingbtns src={area2} onClick={()=>navigateToBookingSlotTimings("area2")} />
 
   </div>
-  <div className="xl:w-1/3 lg:w-1/2 md:w-full px-4 py-6 border-l-2 border-gray-200 border-opacity-60">
-    <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Third Area</h2>
+  <div className="xl:w-1/3 lg:w-1/2 md:w-full px-4">
+    <h2 className="text-lg sm:text-xl text-[#d46e08] font-medium title-font mb-5">Third Area</h2>
 
     <SpaceBookingbtns src={area3} onClick={()=>navigateToBookingSlotTimings("area3")} />
 

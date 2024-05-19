@@ -49,15 +49,15 @@ const CancelBookingUser = () => {
 
 
   return (
-    <div className='bg-purple-100'>
+    <div className='bg-black'>
       <HeaderUser />
       <div className="container mx-auto p-6">
         <div className="overflow-x-auto">
         <div className="flex flex-col items-center text-center justify-center">
-        <h2 class="font-bold title-font text-black text-3xl mt-10"><Link to={`/userDashboardHome${params.id}`}><i class="fa-solid fa-circle-left text-3xl hover:scale-125"></i></Link>  Cacel Your Booking</h2>
+        <h2 class="font-bold title-font text-[#d46e08] text-3xl mt-10"><Link to={`/userDashboardHome${params.id}`}><i class="fa-solid fa-circle-left text-3xl hover:scale-125 text-[#d46e08]"></i></Link>  Cacel Your Booking</h2>
         </div>
           <table className="min-w-full divide-y divide-gray-200 mt-56 mb-56">
-            <thead className="bg-purple-600 text-white shadow-2xl">
+            <thead className="bg-[#d46e08] text-white shadow-2xl">
               <tr>
                 <th className="px-6 py-3 max-sm:p-1  text-3xl font-semibold uppercase tracking-wider border border-black max-md:text-sm max-sm:text-sm ">
                   Information
@@ -67,7 +67,7 @@ const CancelBookingUser = () => {
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-[#8683e6] divide-y divide-gray-500 rounded-2xl shadow-2xl">
+            <tbody className="bg-[#d46e08] divide-y divide-gray-500 rounded-2xl shadow-2xl">
             {data && data.map((dataa, index) => (
                 <tr key={index}>
                   <td className="px-6 py-4 border max-sm:p-1 text-xl text-white border-black  max-sm:text-sm text-center">

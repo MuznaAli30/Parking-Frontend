@@ -46,7 +46,7 @@ for(let d = 1; d <= 4; d++){
 
 
   return (
-    <div className='bg-purple-100'>
+    <div className='bg-black'>
       <HeaderUser />
       <section>
         <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
@@ -56,13 +56,13 @@ for(let d = 1; d <= 4; d++){
             </div>
           </div>
           <form className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0" on onSubmit={handleBookSotTimings}>
-            <h2  className="text-gray-900 text-3xl font-medium title-font mt-24 mb-10"><Link to={`/bookSpaceUser/${params.id}`}><i class="fa-solid fa-circle-left text-3xl hover:scale-125"></i></Link> Book Slot Timing</h2>
-            <label className='font-bold text-xl'>Date</label><input className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' type="date" placeholder="date" name='date' value={formData.date} onChange={handleChange}/>
-            <label className='font-bold text-xl'>Timings</label>
+            <h2  className="text-[#d46e08] text-3xl font-medium title-font mt-24 mb-10"><Link to={`/bookSpaceUser/${params.id}`}><i class="text-[#d46e08] fa-solid fa-circle-left text-3xl hover:scale-125"></i></Link> Book Slot Timing</h2>
+            <label className='font-bold text-xl text-[#d46e08] mb-2'>Date</label><input className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' type="date" placeholder="date" name='date' value={formData.date} onChange={handleChange}/>
+            <label className='font-bold text-xl text-[#d46e08] mb-2'>Timings</label>
             
             <input className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' type="time" placeholder="hours" name='time'value={formData.time} onChange={handleChange}>
             </input>
-          <label className='font-bold text-xl'>Duration</label>
+          <label className='font-bold text-xl text-[#d46e08] mb-2'>Duration</label>
           <select className='bg-white cursor-pointer rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mb-4' type="hour" placeholder="Duration" name='duration' value={formData.duration} onChange={handleChange}>
             {durations.map((duration, index) => (
               <option key={index} value={duration.Duration} > {duration.Duration} </option>
