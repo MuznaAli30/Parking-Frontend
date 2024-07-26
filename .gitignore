@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /Api
+/._pub
+/123456.pub
