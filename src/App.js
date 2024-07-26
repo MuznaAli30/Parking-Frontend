@@ -13,9 +13,9 @@ import ViewFeedbackReviews from './Pages/HomePages/FeedBackPages/ViewFeedbackRev
 import AdminDashboardHome from './Pages/AdminPages/AdminHome/AdminDashboardHome';
 import CancelBookingAdmin from './Pages/AdminPages/CancelBookingAdminPage/CancelBookingAdmin';
 import ViewUser from './Pages/AdminPages/ViewUserPage/ViewUser';
-// import ReplyReviews from './Pages/AdminPages/ReplyReviewsPage/ReplyReviews';
 import { DataProvider } from './ReactContext/Context';
 import About from './Pages/HomePages/About/About';
+import ViewBookings from './Pages/UserPages/ViewAllBookings/ViewBookings';
 
 
 
@@ -40,7 +40,9 @@ function App() {
       <Route path='/adminDashboardHome' element={<AdminDashboardHome/>}/>
       <Route path='/cancleBookingAdmin' element={<CancelBookingAdmin/>}/>
       <Route path='/viewUser' element={<ViewUser/>}/>
-      {/* <Route path='/replyReviews' element={<ReplyReviews/>}/> */}
+      <Route path='/ViewAllBookings/:id' element={<ViewBookings/>}/>
+
+
       
      </Routes>
      </DataProvider>

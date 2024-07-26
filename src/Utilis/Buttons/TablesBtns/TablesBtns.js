@@ -9,3 +9,8 @@ export const TablesBtns = ({label, onClick, className})=> (
     <button  onClick={onClick} className="inline-flex text-white bg-red-700 border-0 py-2 px-5 max-sm:p-1 focus:outline-none hover:bg-gray-500 rounded text-lg mt-4 mb-4 max-sm:text-sm">{label}</button>
 
 )
+export const TablesBtnsPut = ({label, onClick, className})=> (
+
+    <button  onClick={onClick} className="inline-flex text-white bg-green-700 border-0 py-2 px-5 max-sm:p-1 focus:outline-none hover:bg-green-500 rounded text-lg mt-4 mb-4 max-sm:text-sm">{label}</button>
+
+)
