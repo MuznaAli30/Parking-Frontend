@@ -19,8 +19,6 @@ Built with **React.js** and **Tailwind CSS** (JavaScript). Users can book parkin
 2. Install dependencies: `npm install`  
 3. Start dev server: `npm start`
 
-## 🌐 Live Demo
-(If deployed on Vercel, paste link here)
 
 ## 📫 Connect with Me
 - GitHub: https://github.com/MuznaAli30  
